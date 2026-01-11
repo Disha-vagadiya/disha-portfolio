@@ -1,0 +1,203 @@
+.projects {
+    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+    position: relative;
+}
+
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-cyan-purple);
+    filter: blur(100px);
+    opacity: 0.1;
+    border-radius: 50%;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+}
+
+.project-card {
+    position: relative;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-2xl);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out both;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-16px);
+    box-shadow: var(--shadow-xl), 0 0 40px rgba(103, 126, 234, 0.3);
+    border-color: var(--color-accent-purple);
+}
+
+.project-card:hover::before {
+    opacity: 0.05;
+}
+
+.project-icon-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.project-card:hover .project-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.project-icon {
+    font-size: var(--font-size-4xl);
+}
+
+.project-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.project-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    transition: color var(--transition-base);
+}
+
+.project-card:hover .project-title {
+    background: var(--gradient-cyan-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.project-description {
+    font-size: var(--font-size-base);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-top: auto;
+}
+
+.tech-badge {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-accent-cyan);
+    transition: all var(--transition-base);
+    position: relative;
+    z-index: 1;
+}
+
+.project-card:hover .tech-badge {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-accent-purple);
+    transform: translateY(-2px);
+}
+
+.project-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 0.03;
+}
+
+/* Stagger animation for cards */
+.project-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.project-card:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.project-card:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .project-card {
+        padding: var(--spacing-lg);
+    }
+
+    .project-icon-wrapper {
+        width: 64px;
+        height: 64px;
+    }
+
+    .project-icon {
+        font-size: var(--font-size-3xl);
+    }
+
+    .project-title {
+        font-size: var(--font-size-xl);
+    }
+
+    .project-description {
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
