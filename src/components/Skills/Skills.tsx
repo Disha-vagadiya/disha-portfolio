@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SiReact, SiNextdotjs, SiJavascript, SiTypescript, SiHtml5, SiBootstrap, SiNodedotjs, SiExpress, SiPhp, SiLaravel, SiMysql, SiMongodb, SiGit, SiGithub, SiFigma, SiCss, SiMui, SiJquery, SiN8N, SiPostman } from 'react-icons/si';
+import { SiReact, SiNextdotjs, SiJavascript, SiTypescript, SiHtml5, SiBootstrap, SiPhp, SiMysql, SiGit, SiGithub, SiFigma, SiCss, SiMui, SiJquery, SiN8N, SiPostman } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
 import { TbBrandReactNative } from 'react-icons/tb';
 import './Skills.css';
